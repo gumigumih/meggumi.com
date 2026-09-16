@@ -1,4 +1,4 @@
-const sectionIds = ['top', 'services', 'works', 'profile', 'work-style', 'contact']
+const sectionIds = ['top', 'services', 'works', 'about-me', 'how-i-work', 'contact']
 
 const initActiveSectionNav = () => {
   if (!document.body.classList.contains('homepage')) return

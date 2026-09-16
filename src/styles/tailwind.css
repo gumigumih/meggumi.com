@@ -1,3 +1,36 @@
 @import "tailwindcss";
 @theme { --font-sans: "M PLUS 1p", sans-serif; --font-raleway: "Raleway", sans-serif; }
-@layer base { :root { scroll-behavior:smooth; scrollbar-gutter:stable; } }
+@layer base {
+  :root {
+    scroll-behavior:smooth;
+    scrollbar-gutter:stable;
+    --dropdown-open-dur:250ms;
+    --dropdown-close-dur:150ms;
+    --dropdown-pre-scale:.97;
+    --dropdown-closing-scale:.99;
+    --dropdown-ease:cubic-bezier(.22,1,.36,1);
+    --icon-swap-dur:250ms;
+    --icon-swap-blur:2px;
+    --icon-swap-start-scale:.25;
+    --icon-swap-ease: ease-in-out;
+    --learn-shift:2px;
+    --learn-spread:8deg;
+    --learn-in:350ms;
+    --learn-out:350ms;
+    --learn-ease:cubic-bezier(.22,1,.36,1);
+    --check-opacity-dur:500ms;
+    --check-rotate-dur:500ms;
+    --check-rotate-from:80deg;
+    --check-bob-dur:500ms;
+    --check-y-amount:40px;
+    --check-blur-dur:500ms;
+    --check-blur-from:10px;
+    --check-path-dur:500ms;
+    --check-path-delay:80ms;
+    --check-ease-out:cubic-bezier(.22,1,.36,1);
+    --check-ease-opacity:cubic-bezier(.22,1,.36,1);
+    --check-ease-rotate:cubic-bezier(.22,1,.36,1);
+    --check-ease-bob:cubic-bezier(.34,1.35,.64,1);
+    --check-ease-path:cubic-bezier(.22,1,.36,1);
+  }
+}

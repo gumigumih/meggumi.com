@@ -8,5 +8,15 @@ const selectedProjects=[
 ---
 <section id="works" class="design-section relative border-b border-[#bdc7d2] scroll-mt-[90px]"><div class="section-inner mx-auto max-w-[1440px] px-[3.7%] py-[46px] max-md:px-6 max-md:py-[34px] min-[1440px]:px-[54px]">
 <SectionHeading number="02" title="WORKS" description="これまでに制作・開発した主な実績です。" />
-<div class="works-grid grid grid-cols-2 gap-x-4 gap-y-[25px] md:grid-cols-4 md:gap-[22px]" data-reveal-group>{selectedProjects.map(item=><a href={item.href} class="work-card group focus-ring min-w-0" data-reveal-item><div class="work-image flex aspect-[1.02] items-center overflow-hidden bg-[#f2f4f6]"><img class="work-image-content h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.035]" src={item.image} alt={item.title} loading="lazy" width="600" height="400" /></div><h3 class="work-title mt-[13px] flex items-center justify-between gap-2 text-[13px] font-bold leading-[1.6] md:text-[15px]">{item.title}<span class="work-arrow text-2xl font-normal" aria-hidden="true">⟶</span></h3><p class="work-role mt-[5px] font-raleway text-[11px] text-[#667181]">{item.role}</p></a>)}</div>
+<div class="works-grid grid grid-cols-2 gap-x-4 gap-y-[25px] md:grid-cols-4 md:gap-[22px]" data-reveal-group>{selectedProjects.map(item=><a href={item.href} class="work-card t-learn group focus-ring min-w-0" data-reveal-item><div class="work-image flex aspect-[1.02] items-center overflow-hidden bg-[#f2f4f6]"><img class="work-image-content h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.035]" src={item.image} alt={item.title} loading="lazy" width="600" height="400" /></div><h3 class="work-title mt-[13px] flex items-center justify-between gap-2 text-[13px] font-bold leading-[1.6] md:text-[15px]">{item.title}<span class="work-arrow t-learn-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h8" /><path class="t-learn-arm t-learn-arm-top" d="M6 4L10 8" /><path class="t-learn-arm t-learn-arm-bot" d="M10 8L6 12" /></svg></span></h3><p class="work-role mt-[5px] font-raleway text-[11px] text-[#667181]">{item.role}</p></a>)}</div>
 </div></section>
+<style>
+.work-arrow svg{display:block;width:1.25rem;height:1.25rem}
+.t-learn-chevron{display:inline-flex;transform:translateX(0);transition:transform var(--learn-out) var(--learn-ease)}
+.t-learn-arm{transform-box:view-box;transform-origin:10px 8px;vector-effect:non-scaling-stroke;transition:transform var(--learn-out) var(--learn-ease)}
+.t-learn:hover .t-learn-chevron{transform:translateX(var(--learn-shift));transition-duration:var(--learn-in)}
+.t-learn:hover .t-learn-arm{transition-duration:var(--learn-in)}
+.t-learn:hover .t-learn-arm-top{transform:rotate(var(--learn-spread))}
+.t-learn:hover .t-learn-arm-bot{transform:rotate(calc(var(--learn-spread) * -1))}
+@media(prefers-reduced-motion:reduce){.t-learn-chevron,.t-learn-arm{transition:none!important}}
+</style>

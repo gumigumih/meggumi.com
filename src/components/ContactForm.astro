@@ -47,7 +47,7 @@ const turnstileEnabled = Boolean(turnstileSiteKey && contactFormEndpoint)
       <div class="bg-white rounded-2xl p-8 text-center">
         <div class="flex flex-col items-center justify-center">
           <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4">
-            <i class="fas fa-check-circle text-3xl text-slate-600"></i>
+            <span id="submit-success-check" class="t-success-check" data-state="out" aria-hidden="true"><svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17l9-10" /></svg></span>
           </div>
           <h3 class="text-xl font-bold text-slate-800 mb-2">送信が完了しました</h3>
           <p class="text-slate-600 mb-4 max-w-md mx-auto">お問い合わせありがとうございます。内容を確認のうえご連絡します。</p>
@@ -90,10 +90,18 @@ const turnstileEnabled = Boolean(turnstileSiteKey && contactFormEndpoint)
   const btnIcon = document.getElementById('submit-icon')
   const btnText = document.getElementById('submit-text')
   const successEl = document.getElementById('submit-success')
+  const successCheck = document.getElementById('submit-success-check')
   const errorEl = document.getElementById('submit-error')
   const mailtoLink = document.getElementById('mailto-link')
   const copyButton = document.getElementById('copy-button')
   const formStartedAt = Date.now()
+
+  const checkPath = successCheck?.querySelector('path')
+  if (checkPath) {
+    const pathLength = Math.ceil(checkPath.getTotalLength())
+    checkPath.style.strokeDasharray = String(pathLength)
+    checkPath.style.strokeDashoffset = String(pathLength)
+  }
 
   const setSubmitting = (submitting) => {
     if (submitting) {
@@ -150,6 +158,11 @@ const turnstileEnabled = Boolean(turnstileSiteKey && contactFormEndpoint)
 
       form.classList.add('hidden')
       successEl.classList.remove('hidden')
+      if (successCheck) {
+        successCheck.setAttribute('data-state', 'out')
+        void successCheck.offsetWidth
+        successCheck.setAttribute('data-state', 'in')
+      }
       form.reset()
     } catch (err) {
       console.error('送信エラー:', err)
@@ -162,3 +175,16 @@ const turnstileEnabled = Boolean(turnstileSiteKey && contactFormEndpoint)
     }
   })
 </script>
+<style>
+.t-success-check{display:inline-block;transform-origin:center;opacity:0;will-change:transform,opacity,filter}
+.t-success-check svg{display:block;overflow:visible}
+.t-success-check svg path{stroke-dasharray:20;stroke-dashoffset:20}
+.t-success-check[data-state=in]{animation:t-check-fade var(--check-opacity-dur) var(--check-ease-opacity) forwards,t-check-rotate var(--check-rotate-dur) var(--check-ease-rotate) forwards,t-check-blur var(--check-blur-dur) var(--check-ease-out) forwards,t-check-bob var(--check-bob-dur) var(--check-ease-bob) forwards}
+.t-success-check[data-state=in] svg path{animation:t-check-draw var(--check-path-dur) var(--check-ease-path) var(--check-path-delay,0ms) forwards}
+@keyframes t-check-fade{from{opacity:0}to{opacity:1}}
+@keyframes t-check-rotate{from{transform:rotate(var(--check-rotate-from))}to{transform:rotate(0deg)}}
+@keyframes t-check-blur{from{filter:blur(var(--check-blur-from))}to{filter:blur(0)}}
+@keyframes t-check-bob{from{translate:0 var(--check-y-amount)}to{translate:0 0}}
+@keyframes t-check-draw{to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){.t-success-check{animation:none!important;opacity:1}.t-success-check svg path{animation:none!important;stroke-dashoffset:0!important}}
+</style>
