@@ -5,7 +5,7 @@ Cloudflare Registrarへ移管した `meggumi.com` のDNSレコードをTerraform
 TerraformはCloudflare APIを使用します。APIトークンはファイルに保存せず、環境変数で渡してください。
 
 ```sh
-cd terraform/route53
+cd terraform/cloudflare
 cp terraform.tfvars.example terraform.tfvars
 export CLOUDFLARE_API_TOKEN="<Cloudflare API token>"
 terraform init
@@ -33,4 +33,4 @@ terraform plan
 
 `plan` でTTL、値、プロキシ設定が意図どおりであることを確認してから `apply` します。この定義には、GitHub PagesのA/CNAME、GoogleメールのMX、Google Search ConsoleのTXT、GitHub Pages確認用TXTを含めています。
 
-CloudflareのDNSレコードはGitHub Pagesとの互換性を優先してDNSのみ（プロキシなし）にしています。
+CloudflareのDNSレコードはGitHub Pagesとの互換性を優先してDNSのみ（プロキシなし）にし、Pagesのカスタムドメインである`portfolio`だけはCloudflareプロキシを有効にしています。

@@ -48,7 +48,7 @@ resource "cloudflare_dns_record" "portfolio_cname" {
   type    = "CNAME"
   ttl     = 1
   content = "gumigumih-portfolio-c2h.pages.dev"
-  proxied = false
+  proxied = true
 }
 
 resource "cloudflare_dns_record" "google_mx" {
@@ -65,7 +65,7 @@ resource "cloudflare_dns_record" "google_site_verification" {
   name    = var.domain_name
   type    = "TXT"
   ttl     = 1
-  content = "google-site-verification=0AT7NUWB3p532OZJLR-MwebB7oomUjyNrfV2Mor2gYw"
+  content = "\"google-site-verification=0AT7NUWB3p532OZJLR-MwebB7oomUjyNrfV2Mor2gYw\""
 }
 
 resource "cloudflare_dns_record" "github_pages_challenge" {
@@ -73,5 +73,5 @@ resource "cloudflare_dns_record" "github_pages_challenge" {
   name    = "_github-pages-challenge-gumigumih.${var.domain_name}"
   type    = "TXT"
   ttl     = 1
-  content = var.github_pages_challenge_token
+  content = "\"${var.github_pages_challenge_token}\""
 }
