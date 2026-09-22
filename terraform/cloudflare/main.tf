@@ -42,6 +42,15 @@ resource "cloudflare_dns_record" "me_cname" {
   proxied = false
 }
 
+resource "cloudflare_dns_record" "warimaru_cname" {
+  zone_id = data.cloudflare_zone.this.id
+  name    = "warimaru.${var.domain_name}"
+  type    = "CNAME"
+  ttl     = 1
+  content = "gumigumih.github.io"
+  proxied = false
+}
+
 resource "cloudflare_dns_record" "portfolio_cname" {
   zone_id = data.cloudflare_zone.this.id
   name    = "portfolio.${var.domain_name}"
