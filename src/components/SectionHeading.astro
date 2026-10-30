@@ -1,4 +1,4 @@
 ---
-const {number, title, description} = Astro.props
+const {title, description} = Astro.props
 ---
-<div class="section-heading mb-7 flex flex-wrap items-start gap-4 md:flex-nowrap md:gap-7"><span class="section-number font-raleway text-xs font-bold leading-[2.6] md:text-base" data-reveal>{number}</span><div data-reveal><h2 class="section-heading-title font-raleway text-[clamp(28px,3.8vw,48px)] font-extrabold leading-[1.05] tracking-[-.035em]">{title}</h2><p class="section-heading-description mt-[9px] text-sm text-[#667181]">{description}</p></div><div class="section-heading-slot ml-8 max-w-[430px] self-center text-[13px] leading-[1.8] text-[#667181] md:ml-auto" data-reveal><slot /></div></div>
+<div class="section-heading mb-7 flex flex-wrap items-start gap-4 md:flex-nowrap md:gap-7"><div data-reveal><h2 class="section-heading-title font-raleway text-[clamp(28px,3.8vw,48px)] font-extrabold leading-[1.05] tracking-[-.035em]">{title}</h2><p class="section-heading-description mt-[9px] text-sm text-[#667181]">{description}</p></div><div class="section-heading-slot ml-0 max-w-[430px] self-center text-[13px] leading-[1.8] text-[#667181] md:ml-auto" data-reveal><slot /></div></div>
