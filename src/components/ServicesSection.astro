@@ -1,15 +1,14 @@
 ---
 import SectionHeading from './SectionHeading.astro'
 const services = [
-{title:'フロントエンド実装',description:'デザインの意図を形に。画面幅や利用環境に合わせ、保守しやすい実装を行います。',type:'frontend'},
-{title:'バックエンド開発',description:'API開発やデータ連携、既存機能の改善まで。サービスの仕組みを支えます。',type:'backend-sql'},
-{title:'Web制作・開発支援',description:'要件整理から実装・公開まで。プロジェクトに必要な範囲で参加します。',type:'planning'}
+{title:'フロントエンド実装',description:'デザインデータから画面を実装し、PC・スマートフォンでの表示を確認・調整します。',type:'frontend'},
+{title:'バックエンド開発',description:'小規模APIの実装、外部サービスとのデータ連携、既存機能の改修に対応します。',type:'backend-sql'},
+{title:'Web制作・開発支援',description:'仕様が固まる前の要件整理から参加し、必要な画面・機能の実装と公開を支援します。',type:'planning'}
 ]
 ---
 <section id="services" class="design-section relative border-b border-[#bdc7d2] scroll-mt-[90px]"><div class="section-inner mx-auto max-w-[1440px] px-[3.7%] py-[46px] max-md:px-6 max-md:py-[34px] min-[1440px]:px-[54px]">
-<SectionHeading number="01" title="SERVICES" description="必要なスキルを、必要なタイミングで。"><p>フロントエンドからバックエンドまで。<br />Web制作・開発に関わる業務を柔軟にサポートします。</p></SectionHeading>
+<SectionHeading title="SERVICES" description="画面実装からAPI連携、既存機能の改修まで担当します。" />
 <div class="service-grid grid grid-cols-1 gap-7 md:grid-cols-3" data-reveal-group>{services.map(service=><article class="service-card relative min-w-0"><div class="service-visual relative aspect-[2.2] overflow-hidden bg-[#17212c] max-md:aspect-[2.6]"><img class="service-image h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(.2,.7,.2,1)]" src={`/assets/images/service-${service.type}.jpg`} alt="" width="600" height="270" loading="lazy" /></div><h3 class="service-title mb-2 mt-5 text-[clamp(17px,1.7vw,23px)] font-extrabold tracking-[-.04em] max-md:mt-[15px] max-md:text-xl">{service.title}</h3><p class="service-description text-sm leading-[1.9] text-[#536070]">{service.description}</p></article>)}</div>
-<p class="service-audience mt-6 text-xs text-[#667181]" data-reveal>制作会社・広告代理店のスポット開発から、個人事業のWeb制作まで対応します。</p>
 </div></section>
 <style>
 .service-image{filter:saturate(.18) contrast(1.08) brightness(.88);object-position:center 48%}.service-card+.service-card:before{content:"";position:absolute;left:-14px;top:0;bottom:0;border-left:1px solid #bdc7d2}.service-card:hover .service-image{transform:scale(1.045)}
