@@ -34,3 +34,15 @@
     --check-ease-path:cubic-bezier(.22,1,.36,1);
   }
 }
+
+/* The sticky site header already occupies space in the page flow. */
+@media (width < 48rem) {
+  .page-main {
+    padding-top: 1.5rem;
+  }
+
+  .page-main .breadcrumb,
+  .page-main > .page-section:first-child {
+    padding-top: 0;
+  }
+}
