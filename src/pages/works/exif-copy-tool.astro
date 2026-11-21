@@ -6,13 +6,13 @@ import WorkCaseStudyPage from '../../components/WorkCaseStudyPage.astro'
 <WorkCaseStudyPage
   title="EXIF Copy Tool"
   metaTitle="EXIF Copy Tool | meg+gumi"
-  description="写真のEXIF情報を右クリックからコピーできるWindows向けツールの課題、担当範囲、実装、成果を紹介します。"
+  description="写真のEXIF情報を右クリックからコピーできるWindows・Mac向けツールの課題、担当範囲、実装、成果を紹介します。"
   image="/assets/images/exif-copy-tool/ogp.png"
   imageAlt="EXIF Copy Toolの操作イメージ"
   canonicalPath="/works/exif-copy-tool"
-  tags="#Windowsツール #Python #PyInstaller"
+  tags="#Windows #macOS #Python #PyInstaller"
   date="2026-06"
-  subtitle="写真の撮影情報を、右クリックから用途に合った形式でコピーするWindows向けツール"
+  subtitle="写真の撮影情報を、右クリックから用途に合った形式でコピーするWindows・Mac向けツール"
   overview={[
     '写真をSNSやDiscordへ投稿するときに、撮影情報を共有する手間を減らすために開発したWindows向けツールです。',
     '画像を右クリックして出力形式を選ぶだけで、必要なEXIF情報をクリップボードへコピーできます。',
@@ -31,11 +31,10 @@ import WorkCaseStudyPage from '../../components/WorkCaseStudyPage.astro'
   ]}
   outcome={[
     '画像の選択から撮影情報のコピーまでを右クリック操作で完了できるWindowsツールとして公開しました。',
-    'GitHub Releasesからインストーラーを配布し、利用者が導入できる状態まで整備しています。',
+    'GitHub ReleasesでWindows版とMac版を配布しています。Mac版はApple Silicon搭載Mac（macOS 13以降）に対応しています。',
   ]}
   links={[
-    { label: '配布ページを見る', href: '/exif-copy-tool/', icon: 'fas fa-up-right-from-square', primary: true },
-    { label: 'リリース', href: 'https://github.com/gumigumih/exif-copy-tool/releases/latest', icon: 'fas fa-download', external: true },
+    { label: '配布ページを見る', href: 'https://github.com/gumigumih/exif-copy-tool/releases/latest', icon: 'fas fa-download', primary: true, external: true },
     { label: 'GitHub', href: 'https://github.com/gumigumih/exif-copy-tool', icon: 'fab fa-github', external: true },
   ]}
   inquiryLead="業務上の小さな手作業を整理し、デスクトップツールとして実装・配布する開発をご相談いただけます。"
